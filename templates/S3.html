@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OTP Verification</title>
+</head>
+<body style="font-family: Arial; text-align:center; margin-top:50px;">
+
+<h2>Scan QR Code</h2>
+
+<img src="data:image/png;base64,{{ qr_code }}"><br><br>
+
+<form method="POST" action="/verify">
+    <input name="otp" placeholder="Enter OTP" required><br><br>
+    <button type="submit">Verify</button>
+</form>
+
+{% with messages = get_flashed_messages() %}
+    {% for msg in messages %}
+        <p style="color:red;">{{ msg }}</p>
+    {% endfor %}
+{% endwith %}
+
+</body>
+</html>
